@@ -15,7 +15,7 @@ function NavBar() {
                     <a href="#cards-section">
                       <p>Portfólio</p>
                     </a>
-                    <a href="#contactos">
+                    <a href="#contact-page">
                       <p>Contactos</p>
                     </a>
                   </aside>
