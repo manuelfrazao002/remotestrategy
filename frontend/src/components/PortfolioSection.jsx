@@ -38,7 +38,8 @@ const PortfolioSection = () => {
           >
             <img src={item.images[0]} alt={item.title} className="card-img" />
             <div className="card-overlay">
-              <p>Mais Detalhes</p>
+              <p>{item.title}</p>
+              <p className="plus-about">+</p>
             </div>
           </Link>
         ))}
