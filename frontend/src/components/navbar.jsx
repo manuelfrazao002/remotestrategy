@@ -1,22 +1,28 @@
-import logo from '../imgs/logo_cor.png'
-import '../App.css'
+import logo from "../imgs/logo_cor.png";
 
-function Navbar() {
-
+function NavBar() {
   return (
     <>
-      <nav id='navbar'>
-        <a href="#">
-          <img src={logo} className="logo" alt="Remote Strategy Logo" />
-        </a>
-        <aside id='links-aside'>
-        <a href='#'><p>Sobre Nós</p></a>
-        <a href='#'><p>Portfólio</p></a>
-        <a href='#'><p>Link</p></a>
-        </aside>
-      </nav>
-    </>
-  )
+              <div>
+                <nav id="navbar">
+                  <a href="#">
+                    <img src={logo} className="logo" alt="Remote Strategy Logo" />
+                  </a>
+                  <aside id="links-aside">
+                    <a href="#about-us">
+                      <p>Sobre Nós</p>
+                    </a>
+                    <a href="#cards-section">
+                      <p>Portfólio</p>
+                    </a>
+                    <a href="#contactos">
+                      <p>Contactos</p>
+                    </a>
+                  </aside>
+                </nav>
+                </div>
+                </>
+  );
 }
 
-export default Navbar
+export default NavBar;

@@ -1,0 +1,49 @@
+.portfolio-filters {
+    text-align: center;
+    margin-bottom: 1rem;
+  }
+  
+  .portfolio-filters button {
+    background: none;
+    border: 1px solid #ccc;
+    padding: 0.5rem 1rem;
+    margin: 0 0.5rem;
+    cursor: pointer;
+    border-radius: 4px;
+    transition: 0.3s;
+  }
+  
+  .portfolio-filters button.active {
+    background-color: #333;
+    color: #fff;
+    border-color: #333;
+  }
+  
+  .card {
+    position: relative;
+    display: block;
+    overflow: hidden;
+    border-radius: 8px;
+  }
+  
+  .card-img {
+    width: 100%;
+    height: auto;
+    display: block;
+  }
+  
+  .card-overlay {
+    position: absolute;
+    bottom: 0;
+    background: rgba(0, 0, 0, 0.5);
+    color: white;
+    width: 100%;
+    text-align: center;
+    padding: 0.5rem;
+    transition: 0.3s;
+  }
+  
+  .card:hover .card-overlay {
+    background: rgba(0, 0, 0, 0.8);
+  }
+  

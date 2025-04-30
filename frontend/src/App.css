@@ -32,7 +32,7 @@
 
 #background-sec {
   /* width: 100vw; */
-  height: 65vh;
+  height: 60vh;
   overflow: hidden;
 }
 
@@ -53,6 +53,7 @@
 #about-us {
   padding: 4rem 2rem;
   text-align: center;
+  /* background-image: url('./imgs/balls_backdrop.jpg'); */
 }
 
 .aboutus-container {
@@ -141,6 +142,78 @@
   opacity: 1;
 }
 
+.portfolio-filters {
+  display: flex;
+  justify-content: center;
+  flex-wrap: wrap;
+  gap: 1rem;
+  margin-bottom: 2rem;
+}
+
+.filter-button {
+  background-color: transparent;
+  border: 2px solid #E4B100;
+  color: #E4B100;
+  padding: 0.6rem 1.2rem;
+  border-radius: 30px;
+  cursor: pointer;
+  font-weight: bold;
+  transition: all 0.3s ease-in-out;
+}
+
+.filter-button:hover {
+  background-color: #E4B100;
+  color: black;
+}
+
+.filter-button.active {
+  background-color: #E4B100;
+  color: black;
+  box-shadow: 0 0 10px rgba(228, 177, 0, 0.5);
+  transform: scale(1.05);
+}
+
+/***************************/
+
+/*************Contactos**************/
+
+#contact-page {
+  padding: 4rem 2rem;
+  max-width: 600px;
+  margin: 0 auto;
+  text-align: left;
+}
+
+.contact-form {
+  display: flex;
+  flex-direction: column;
+  gap: 1rem;
+}
+
+.contact-form input,
+.contact-form textarea {
+  width: 100%;
+  padding: 0.8rem;
+  border: 1px solid #ccc;
+  border-radius: 6px;
+}
+
+.contact-form button {
+  background-color: black;
+  color: white;
+  border: none;
+  padding: 1rem;
+  border-radius: 6px;
+  cursor: pointer;
+  transition: background 0.3s ease-in-out;
+  margin: 1rem auto 0 auto;
+}
+
+
+.contact-form button:hover {
+  background-color: #E4B100;
+  color: black;
+}
 
 
 /***************************/
@@ -232,7 +305,7 @@
   }
 
   #background-sec{
-    height: 30vh; 
+    height: 35vh; 
   }
 
   #background {
@@ -252,7 +325,7 @@
   }
 
   #background-sec{
-    height: 30vh; 
+    height: 35vh; 
   }
 
   #background {
