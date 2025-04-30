@@ -1,6 +1,7 @@
 import { useParams, useNavigate } from "react-router-dom";
 import portfolioItems from "./data/portfolioData";
 import Footer from "./components/footer";
+import "./App.css";
 
 const ProjectDetails = () => {
   const { id } = useParams();
