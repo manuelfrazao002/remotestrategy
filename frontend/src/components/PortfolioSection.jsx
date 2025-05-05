@@ -11,6 +11,28 @@ const PortfolioSection = () => {
       ? portfolioItems
       : portfolioItems.filter((item) => item.category === selectedCategory);
 
+      const handleTilt = (e) => {
+        const card = e.currentTarget;
+        const inner = card.querySelector('.tilt-inner');
+      
+        const { width, height, left, top } = card.getBoundingClientRect();
+        const x = e.clientX - left;
+        const y = e.clientY - top;
+      
+        const rotateX = ((y / height) - 0.5) * -10;
+        const rotateY = ((x / width) - 0.5) * 10;
+      
+        inner.style.setProperty('--rotateX', `${rotateY}deg`);
+        inner.style.setProperty('--rotateY', `${rotateX}deg`);
+      };
+      
+      const resetTilt = (e) => {
+        const inner = e.currentTarget.querySelector('.tilt-inner');
+        inner.style.setProperty('--rotateX', '0deg');
+        inner.style.setProperty('--rotateY', '0deg');
+      };
+      
+
   return (
     <section id="cards-section">
       <h2>Portfólio</h2>
@@ -32,16 +54,21 @@ const PortfolioSection = () => {
       <div className="cards-grid">
         {filteredItems.map((item) => (
           <Link
-            to={`/projeto/${item.id}`}
-            key={item.id}
-            className="card"
-          >
+          to={`/projeto/${item.id}`}
+          key={item.id}
+          className="card tilt-card"
+          onMouseMove={handleTilt}
+          onMouseLeave={resetTilt}
+        >
+          <div className="tilt-inner">
             <img src={item.images[0]} alt={item.title} className="card-img" />
             <div className="card-overlay">
               <p>{item.title}</p>
               <p className="plus-about">+</p>
             </div>
-          </Link>
+          </div>
+        </Link>
+        
         ))}
       </div>
     </section>

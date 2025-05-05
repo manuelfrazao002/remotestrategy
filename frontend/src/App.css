@@ -126,7 +126,7 @@ html {
   background: rgba(0, 0, 0, 0.5);
   color: #fff;
   display: flex;
-  flex-direction: column; /* <-- ESSA LINHA ADICIONADA */
+  flex-direction: column;
   align-items: center;
   justify-content: center;
   font-weight: bold;
@@ -143,7 +143,7 @@ html {
 }
 
 .card:hover .card-overlay {
-  opacity: 1;
+  opacity: 1; 
 }
 
 .portfolio-filters {
@@ -180,6 +180,23 @@ html {
 .plus-about{
   font-size: 3rem;
 }
+
+.tilt-card {
+  perspective: 500px;
+  transform-style: preserve-3d;
+  transition: transform 0.2s ease;
+  will-change: transform;
+}
+
+.tilt-inner {
+  transition: transform 0.2s ease;
+  transform-style: preserve-3d;
+}
+
+.tilt-card:hover .tilt-inner {
+  transform: rotateY(var(--rotateX)) rotateX(var(--rotateY));
+}
+
 
 /***************************/
 
