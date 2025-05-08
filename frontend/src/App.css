@@ -43,12 +43,80 @@ html {
 #background {
   width: 100vw;
   height: 75vh;
-  object-fit: cover;
   position: absolute;
   top: 0;
   left: 0;
   z-index: -1;
+  background-image: linear-gradient(to bottom, transparent, white),
+    url('./imgs/background_city.jpg'); /* caminho da imagem */
+
+  background-size: cover;
+  background-position: center;
+  background-repeat: no-repeat;
 }
+
+
+/***************************/
+
+/*************Animação Imagens Ficha**************/
+
+.container-imgs {
+  display: flex;
+  justify-content: center; 
+  align-items: center;    
+  gap: 2rem;              
+  flex-wrap: inherit;        
+  padding: 2rem;    
+}       
+
+.ficha-image {
+  opacity: 0;
+  transform: translateY(-50%);
+  z-index: 1;
+  transition: all 0.5s ease;
+  max-width: 200px;
+  margin: 0 1rem;
+}
+
+.ficha-image.show {
+  opacity: 1;
+  transform: translateY(0);
+}
+
+.ficha-1.show {
+  left: -100%;
+  animation: slideInLeft 1s forwards;
+  max-width: 200px;
+}
+
+.ficha-2.show {
+  right: -100%;
+  animation: slideInRight 1s forwards;
+  max-width: 200px;
+}
+
+@keyframes slideInLeft {
+  0% {
+    transform: translateX(-100%);
+    opacity: 0;
+  }
+  100% {
+    transform: translateX(0);
+    opacity: 1;
+  }
+}
+
+@keyframes slideInRight {
+  0% {
+    transform: translateX(100%);
+    opacity: 0;
+  }
+  100% {
+    transform: translateX(0);
+    opacity: 1;
+  }
+}
+
 
 /***************************/
 
@@ -60,12 +128,12 @@ html {
   /* background-image: url('./imgs/balls_backdrop.jpg'); */
 }
 
-.aboutus-container {
+ .aboutus-container {
   display: flex;
   align-items: center;
   justify-content: center;
   gap: 2rem;
-  flex-wrap: wrap; /* permite responsividade */
+  flex-wrap: wrap;
   margin-top: 2rem;
 }
 
@@ -359,27 +427,7 @@ html {
   }
 }
 
-@media screen and (max-width: 1670px) and (min-width:1460px) {
-  #navbar {
-    display: flex;
-  }
-
-  #links-aside{
-    display: inherit;
-    align-items: center;
-    width: 100%;
-  }
-
-  #background-sec{
-    height: 35vh; 
-  }
-
-  #background {
-    height: 50vh;
-  }
-}
-
-@media screen and (max-width: 1459px) and (min-width: 199px) {
+@media screen and (max-width: 1000px) and (min-width: 199px) {
   #navbar {
     display: block;
   }
@@ -388,6 +436,19 @@ html {
     display: inherit;
     align-items: center;
     width: 100%;
+  }
+
+  .container-imgs {
+    display: flex;
+    justify-content: center; 
+    align-items: center;    
+    gap: 2rem;              
+    flex-wrap: inherit;        
+    padding: 2rem;    
+  }  
+
+  .ficha-image {
+    width: 80px;
   }
 
   #background-sec{
