@@ -9,7 +9,6 @@ import Footer from "./components/footer";
 import ContactForm from "./components/contactform";
 import ficha1 from "./imgs/ficha_1.jpg";
 import ficha2 from "./imgs/ficha_2.jpg";
-import portfolioItems from "./data/portfolioData";
 
 
 function App() {

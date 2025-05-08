@@ -73,7 +73,7 @@ html {
   transform: translateY(-50%);
   z-index: 1;
   transition: all 0.5s ease;
-  max-width: 200px;
+  max-width: 100px;
   margin: 0 1rem;
 }
 
@@ -85,13 +85,13 @@ html {
 .ficha-1.show {
   left: -100%;
   animation: slideInLeft 1s forwards;
-  max-width: 200px;
+  max-width: 100px;
 }
 
 .ficha-2.show {
   right: -100%;
   animation: slideInRight 1s forwards;
-  max-width: 200px;
+  max-width: 100px;
 }
 
 @keyframes slideInLeft {
