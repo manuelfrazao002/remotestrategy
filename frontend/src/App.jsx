@@ -1,15 +1,16 @@
 import { BrowserRouter as Router, Routes, Route } from "react-router-dom";
 import { useEffect, useState } from "react";
-import background from "./imgs/background_city.jpg";
 import aboutUs from "./imgs/about_us.jpg";
 import "./App.css";
 import PortfolioSection from "./components/PortfolioSection";
-import ProjectDetails from "./ProjectDetails";
+import ProjectDetails from "./pages/ProjectDetails";
 import NavBar from "./components/navbar";
 import Footer from "./components/footer";
 import ContactForm from "./components/contactform";
 import ficha1 from "./imgs/ficha_1.jpg";
 import ficha2 from "./imgs/ficha_2.jpg";
+import portfolioItems from "./data/portfolioData";
+
 
 function App() {
   const [showImages, setShowImages] = useState(false);
@@ -37,8 +38,8 @@ function App() {
                 <NavBar />
 
                 <section id="background-sec">
-  <div id="background" />
-</section>
+                  <div id="background" />
+                </section>
 
                 <section id="about-us">
                   <div className="container-imgs">
