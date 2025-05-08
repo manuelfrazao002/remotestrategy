@@ -59,15 +59,16 @@ const ProjectDetails = () => {
       {isModalOpen && (
         <div className="modal-overlay" onClick={closeModal}>
           <div className="modal-content" onClick={(e) => e.stopPropagation()}>
-            <button onClick={closeModal} className="close-btn">×</button>
-            <button onClick={prevImage} className="nav-btn">←</button>
-            <img
-              src={projeto.images[currentIndex]}
-              alt={`Imagem ${currentIndex + 1}`}
-              className="modal-image"
-            />
-            <button onClick={nextImage} className="nav-btn">→</button>
-          </div>
+  <button onClick={closeModal} className="close-btn">×</button>
+  <button onClick={prevImage} className="nav-btn nav-left">←</button>
+  <img
+    src={projeto.images[currentIndex]}
+    alt={`Imagem ${currentIndex + 1}`}
+    className="modal-image"
+  />
+  <button onClick={nextImage} className="nav-btn nav-right">→</button>
+</div>
+
         </div>
       )}
 

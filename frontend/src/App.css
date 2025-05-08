@@ -11,7 +11,7 @@ html {
 
 /**********Navbar***************/
 
-#navbar{
+#navbar {
   margin-top: 0;
   flex-direction: row;
   display: flex;
@@ -20,13 +20,13 @@ html {
   width: 100%;
 }
 
-#links-aside{
+#links-aside {
   display: inherit;
   gap: 20px;
   float: right;
 }
 
-#links-aside a{
+#links-aside a {
   text-shadow: 0 4px 6px rgb(0, 0, 0);
 }
 
@@ -48,13 +48,12 @@ html {
   left: 0;
   z-index: -1;
   background-image: linear-gradient(to bottom, transparent, white),
-    url('./imgs/background_city.jpg');
+    url("./imgs/background_city.jpg");
 
   background-size: cover;
   background-position: center;
   background-repeat: no-repeat;
 }
-
 
 /***************************/
 
@@ -62,12 +61,12 @@ html {
 
 .container-imgs {
   display: flex;
-  justify-content: center; 
-  align-items: center;    
-  gap: 2rem;              
-  flex-wrap: inherit;        
-  padding: 2rem;    
-}       
+  justify-content: center;
+  align-items: center;
+  gap: 2rem;
+  flex-wrap: inherit;
+  padding: 2rem;
+}
 
 .ficha-image {
   opacity: 0;
@@ -117,7 +116,6 @@ html {
   }
 }
 
-
 /***************************/
 
 /*************About Us**************/
@@ -128,7 +126,7 @@ html {
   /* background-image: url('./imgs/balls_backdrop.jpg'); */
 }
 
- .aboutus-container {
+.aboutus-container {
   display: flex;
   align-items: center;
   justify-content: center;
@@ -153,7 +151,6 @@ html {
   font-size: 1rem;
 }
 
-
 /***************************/
 
 /*************Portfólio**************/
@@ -172,7 +169,7 @@ html {
   display: block;
   overflow: hidden;
   border-radius: 12px;
-  box-shadow: 0 4px 12px rgba(0,0,0,0.1);
+  box-shadow: 0 4px 12px rgba(0, 0, 0, 0.1);
   transition: box-shadow 0.3s ease, transform 0.3s ease;
   text-decoration: none;
 }
@@ -211,7 +208,7 @@ html {
 }
 
 .card:hover .card-overlay {
-  opacity: 1; 
+  opacity: 1;
 }
 
 .portfolio-filters {
@@ -224,8 +221,8 @@ html {
 
 .filter-button {
   background-color: transparent;
-  border: 2px solid #E4B100;
-  color: #E4B100;
+  border: 2px solid #e4b100;
+  color: #e4b100;
   padding: 0.6rem 1.2rem;
   border-radius: 30px;
   cursor: pointer;
@@ -234,18 +231,18 @@ html {
 }
 
 .filter-button:hover {
-  background-color: #E4B100;
+  background-color: #e4b100;
   color: white;
 }
 
 .filter-button.active {
-  background-color: #E4B100;
+  background-color: #e4b100;
   color: black;
   box-shadow: 0 0 10px rgba(228, 177, 0, 0.5);
   transform: scale(1.05);
 }
 
-.plus-about{
+.plus-about {
   font-size: 3rem;
 }
 
@@ -265,7 +262,6 @@ html {
   transform: rotateY(var(--rotateX)) rotateX(var(--rotateY));
 }
 
-
 /***************************/
 
 /*************Página Detalhes**************/
@@ -275,15 +271,17 @@ html {
   flex-wrap: wrap;
   justify-content: center;
   gap: 1rem;
+  padding: 1rem;
+  box-sizing: border-box;
 }
 
 .project-image {
-  max-width: 100%;
-  width: 300px;
-  height: auto;
   transition: transform 0.3s ease, box-shadow 0.3s ease;
   cursor: pointer;
   border-radius: 8px;
+  width: 100%;
+  max-width: 300px;
+  height: auto;
 }
 
 .project-image:hover {
@@ -328,6 +326,7 @@ html {
   font-size: 2rem;
   cursor: pointer;
   user-select: none;
+  transition: color 0.3s ease, transform 0.3s ease;
 }
 
 .close-btn {
@@ -336,6 +335,15 @@ html {
   right: 20px;
 }
 
+.nav-btn:hover,
+  .close-btn:hover {
+    color: #E4B100;
+    transform: scale(1.5);
+  }
+  
+  .close-btn:hover {
+    color: #FF4C4C;
+  }
 
 /***************************/
 
@@ -348,7 +356,7 @@ html {
   text-align: left;
 }
 
-#contact-page h2{
+#contact-page h2 {
   text-align: center;
 }
 
@@ -370,7 +378,6 @@ html {
   color: #1b1b1b;
 }
 
-
 .contact-form button {
   background-color: black;
   color: white;
@@ -381,18 +388,16 @@ html {
   transition: background 0.3s ease-in-out;
 }
 
-
 .contact-form button:hover {
-  background-color: #E4B100;
+  background-color: #e4b100;
   color: black;
 }
-
 
 /***************************/
 
 /*************Footer**************/
 
-#footer {         
+#footer {
   padding: 2rem 2rem;
   font-size: 1rem;
   display: flex;
@@ -432,8 +437,6 @@ html {
   text-align: center;
 }
 
-
-
 /***************************/
 
 .logo {
@@ -442,12 +445,6 @@ html {
   will-change: filter;
   transition: filter 300ms;
 }
-/*.logo:hover {
-  filter: drop-shadow(0 0 2em #646cffaa);
-}
-.logo.react:hover {
-  filter: drop-shadow(0 0 2em #61dafbaa);
-}*/
 
 @keyframes logo-spin {
   from {
@@ -471,9 +468,8 @@ html {
 /************Responsividade*************/
 
 @media (min-width: 2000px) {
-
-  #background-sec{
-    height: 45vh; 
+  #background-sec {
+    height: 45vh;
   }
 
   #background {
@@ -486,7 +482,7 @@ html {
     display: block;
   }
 
-  #links-aside{
+  #links-aside {
     display: inherit;
     align-items: center;
     width: 100%;
@@ -494,33 +490,84 @@ html {
 
   .container-imgs {
     display: flex;
-    justify-content: center; 
-    align-items: center;    
-    gap: 2rem;              
-    flex-wrap: inherit;        
-    padding: 2rem;    
-  }  
+    justify-content: center;
+    align-items: center;
+    gap: 2rem;
+    flex-wrap: inherit;
+    padding: 2rem;
+  }
 
   .ficha-image {
     width: 80px;
   }
 
-  #background-sec{
-    height: 35vh; 
+  #background-sec {
+    height: 35vh;
   }
 
   #background {
     height: 50vh;
   }
 
-  #footer{
+  #footer {
     display: flex;
     flex-direction: column;
     align-items: center;
     justify-content: center;
   }
 
-  .footer-links{
+  .footer-links {
     text-align: center;
   }
+
+  .modal-content {
+    flex-direction: column;
+    align-items: center;
+    justify-content: center;
+    position: relative;
+  }
+
+  .modal-image {
+    max-width: 90vw;
+    max-height: 60vh;
+    border-radius: 8px;
+  }
+
+  .nav-btn {
+    position: absolute;
+    font-size: 2rem;
+    color: white;
+    padding: 0.5rem 0.8rem;
+    border: none;
+    cursor: pointer;
+    transition: color 0.3s ease, transform 0.3s ease;
+    display: inline-block;
+    transform-origin: center;
+    background: none;
+  }
+
+  .nav-left {
+    left: 10px;
+  }
+
+  .nav-right {
+    right: 10px;
+  }
+
+  .close-btn {
+    position: absolute;
+    top: 20px;
+    right: 10px;
+    font-size: 1.8rem;
+    color: white;
+    padding: 0.3rem 0.6rem;
+    border: none;
+    cursor: pointer;
+    transition: color 0.3s ease, transform 0.3s ease;
+    display: inline-block;
+    transform-origin: center;
+    background: none;
+  }
+
+  
 }
