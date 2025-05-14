@@ -1,6 +1,15 @@
 import logo from "../imgs/logo_cor.png";
+import { useEffect } from 'react';
 
 function NavBar() {
+
+  useEffect(() => {
+    if (window.location.hash) {
+      window.history.replaceState(null, '', window.location.pathname);
+    }
+  }, []);
+
+
   return (
     <>
               <div>

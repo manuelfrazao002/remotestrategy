@@ -81,21 +81,24 @@ const PortfolioSection = () => {
 
       <div className="cards-grid">
         {filteredItems.map((item) => (
-          <Link
-            to={`/projeto/${item.id}`}
-            key={item.id}
-            className="card tilt-card"
-            onMouseMove={handleTilt}
-            onMouseLeave={resetTilt}
-          >
-            <div className="tilt-inner">
-              <img src={item.images[0]} alt={item.title} className="card-img" />
-              <div className="card-overlay">
-                <p>{item.title}</p>
-                <p className="plus-about">+</p>
-              </div>
-            </div>
-          </Link>
+<Link
+  to={`/projeto/${item.id}`}
+  key={item.id}
+  className="tilt-card"
+  onMouseMove={handleTilt}
+  onMouseLeave={resetTilt}
+>
+  <div className="tilt-inner">
+    <div className="card">
+      <img src={item.images[0]} alt={item.title} className="card-img" />
+      <div className="card-overlay">
+        <p>{item.title}</p>
+        <p className="plus-about">+</p>
+      </div>
+    </div>
+  </div>
+</Link>
+
         ))}
       </div>
     </section>
