@@ -393,6 +393,40 @@ html {
   color: black;
 }
 
+.popup {
+  position: absolute;
+  top: 50%;
+  left: 50%;
+  transform: translate(-50%, -50%);
+  padding: 1.2rem 2rem;
+  border-radius: 10px;
+  font-weight: bold;
+  color: #fff;
+  background-color: rgba(0, 0, 0, 0.8);
+  z-index: 10;
+  animation: fadeInOut 3s ease-in-out;
+  box-shadow: 0 4px 10px rgba(0, 0, 0, 0.3);
+  pointer-events: none;
+  text-align: center;
+  max-width: 80%;
+}
+
+.popup.success {
+  background-color: #28a745;
+}
+
+.popup.error {
+  background-color: #dc3545;
+}
+
+@keyframes fadeInOut {
+  0% { opacity: 0; transform: translate(-50%, -60%); }
+  10% { opacity: 1; transform: translate(-50%, -50%); }
+  90% { opacity: 1; transform: translate(-50%, -50%); }
+  100% { opacity: 0; transform: translate(-50%, -60%); }
+}
+
+
 /***************************/
 
 /*************Footer**************/
