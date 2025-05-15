@@ -10,6 +10,7 @@ import ContactForm from "./components/contactform";
 import ficha1 from "./imgs/ficha_1.jpg";
 import ficha2 from "./imgs/ficha_2.jpg";
 
+import getBackgroundImages from "./utils/getBackgroundImages";
 
 function App() {
   const [showImages, setShowImages] = useState(false);
@@ -26,6 +27,45 @@ function App() {
     return () => window.removeEventListener("scroll", handleScroll);
   }, []);
 
+  const backgroundImages = getBackgroundImages();
+
+  const [currentIndex, setCurrentIndex] = useState(0);
+  const [touchStartX, setTouchStartX] = useState(null);
+
+  useEffect(() => {
+    const interval = setInterval(() => {
+      setCurrentIndex((prevIndex) => (prevIndex + 1) % backgroundImages.length);
+    }, 4000); // Muda de imagem a cada 4 segundos
+
+    return () => clearInterval(interval);
+  }, [backgroundImages.length]);
+
+  const handleTouchStart = (e) => {
+    setTouchStartX(e.touches[0].clientX);
+  };
+
+  const handleTouchMove = (e) => {
+    if (!touchStartX) return;
+    const touchEndX = e.touches[0].clientX;
+    const deltaX = touchStartX - touchEndX;
+
+    if (Math.abs(deltaX) > 50) {
+      if (deltaX > 0) {
+        // Swipe left
+        setCurrentIndex(
+          (prevIndex) => (prevIndex + 1) % backgroundImages.length
+        );
+      } else {
+        // Swipe right
+        setCurrentIndex(
+          (prevIndex) =>
+            (prevIndex - 1 + backgroundImages.length) % backgroundImages.length
+        );
+      }
+      setTouchStartX(null);
+    }
+  };
+
   return (
     <Router>
       <Routes>
@@ -37,7 +77,22 @@ function App() {
                 <NavBar />
 
                 <section id="background-sec">
-                  <div id="background" />
+                  <div
+                    id="background-carousel"
+                    onTouchStart={handleTouchStart}
+                    onTouchMove={handleTouchMove}
+                  >
+                    {backgroundImages.map((img, index) => (
+                      <img
+                        key={index}
+                        src={img}
+                        alt={`background ${index}`}
+                        className={`carousel-img ${
+                          index === currentIndex ? "active" : ""
+                        }`}
+                      />
+                    ))}
+                  </div>
                 </section>
 
                 <section id="about-us">

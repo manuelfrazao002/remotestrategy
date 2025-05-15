@@ -35,24 +35,48 @@ html {
 /*************Background**************/
 
 #background-sec {
-  /* width: 100vw; */
   height: 60vh;
   overflow: hidden;
 }
 
-#background {
-  width: 100vw;
+#background-carousel {
   height: 75vh;
+  width: 100vw;
   position: absolute;
   top: 0;
   left: 0;
+  overflow: hidden;
   z-index: -1;
-  background-image: linear-gradient(to bottom, transparent, white),
-    url("./imgs/background_city.jpg");
+    background-image: linear-gradient(to bottom, transparent, white);
+}
 
-  background-size: cover;
-  background-position: center;
-  background-repeat: no-repeat;
+#background-carousel::after {
+  content: "";
+  position: absolute;
+  top: 0;
+  left: 0;
+  width: 100%;
+  height: 100%;
+  background-image: linear-gradient(to bottom, transparent, white);
+  z-index: 2;
+  pointer-events: none;
+}
+
+
+.carousel-img {
+  position: absolute;
+  width: 100%;
+  height: 100%;
+  top: 0;
+  left: 0;
+  object-fit: cover;
+  opacity: 0;
+  transition: opacity 1s ease-in-out;
+}
+
+.carousel-img.active {
+  opacity: 1;
+  z-index: 1;
 }
 
 /***************************/
@@ -336,14 +360,14 @@ html {
 }
 
 .nav-btn:hover,
-  .close-btn:hover {
-    color: #E4B100;
-    transform: scale(1.5);
-  }
-  
-  .close-btn:hover {
-    color: #FF4C4C;
-  }
+.close-btn:hover {
+  color: #e4b100;
+  transform: scale(1.5);
+}
+
+.close-btn:hover {
+  color: #ff4c4c;
+}
 
 /***************************/
 
@@ -420,12 +444,23 @@ html {
 }
 
 @keyframes fadeInOut {
-  0% { opacity: 0; transform: translate(-50%, -60%); }
-  10% { opacity: 1; transform: translate(-50%, -50%); }
-  90% { opacity: 1; transform: translate(-50%, -50%); }
-  100% { opacity: 0; transform: translate(-50%, -60%); }
+  0% {
+    opacity: 0;
+    transform: translate(-50%, -60%);
+  }
+  10% {
+    opacity: 1;
+    transform: translate(-50%, -50%);
+  }
+  90% {
+    opacity: 1;
+    transform: translate(-50%, -50%);
+  }
+  100% {
+    opacity: 0;
+    transform: translate(-50%, -60%);
+  }
 }
-
 
 /***************************/
 
@@ -602,6 +637,4 @@ html {
     transform-origin: center;
     background: none;
   }
-
-  
 }
