@@ -650,4 +650,26 @@ html {
     transform-origin: center;
     background: none;
   }
+
+  #img-aboutus {
+  max-width: 300px;
+  height: 300px;
+  width: 100%;
+  border-radius: 8px;
+  object-fit: cover;
+}
+
+  .portfolio-filters {
+    flex-direction: column;
+    align-items: center;
+    gap: 0.5rem;
+  }
+
+  .filter-button {
+    width: 90%;
+    max-width: 300px;
+    text-align: center;
+    font-size: 1rem;
+    padding: 0.8rem 1rem;
+  }
 }

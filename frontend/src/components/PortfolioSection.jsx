@@ -6,6 +6,7 @@ import ficha2 from "../imgs/ficha_2.jpg";
 import useFadeInOnScroll from "../hooks/useFadeInOnScroll";
 
 const PortfolioSection = () => {
+  const [isMobile, setIsMobile] = useState(window.innerWidth <= 768);
   const [selectedCategory, setSelectedCategory] = useState("Todos");
   const categorias = [
     "Todos",
@@ -60,6 +61,15 @@ const PortfolioSection = () => {
 
     return () => window.removeEventListener("scroll", handleScroll);
   }, []);
+
+  useEffect(() => {
+  const handleResize = () => {
+    setIsMobile(window.innerWidth <= 768);
+  };
+
+  window.addEventListener("resize", handleResize);
+  return () => window.removeEventListener("resize", handleResize);
+}, []);
 
   return (
     <section
