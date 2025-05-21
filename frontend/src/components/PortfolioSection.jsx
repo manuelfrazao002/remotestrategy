@@ -1,5 +1,5 @@
 import React, { useState, useEffect } from "react";
-import { Link, useLocation } from "react-router-dom";
+import { Link, useLocation, useNavigate } from "react-router-dom";
 import portfolioItems from "../data/portfolioData";
 import ficha1 from "../imgs/ficha_1.jpg";
 import ficha2 from "../imgs/ficha_2.jpg";
@@ -18,17 +18,21 @@ const PortfolioSection = () => {
   ];
 
   const location = useLocation();
+  const navigate = useNavigate();
 
-  useEffect(() => {
+useEffect(() => {
   if (location.state?.scrollToPortfolio) {
     const section = document.getElementById("cards-section");
     if (section) {
       setTimeout(() => {
         section.scrollIntoView({ behavior: "smooth" });
+
+        // 🧹 Limpa o estado após o scroll
+        navigate(location.pathname, { replace: true, state: {} });
       }, 100);
     }
   }
-}, [location]);
+}, [location, navigate]);
 
   //Animação fade-in dos elementos
   const [refAbout, isVisibleAbout] = useFadeInOnScroll();

@@ -40,7 +40,7 @@ function App() {
   useEffect(() => {
     const interval = setInterval(() => {
       setCurrentIndex((prevIndex) => (prevIndex + 1) % backgroundImages.length);
-    }, 4000); // Muda de imagem a cada 4 segundos
+    }, 4000);
 
     return () => clearInterval(interval);
   }, [backgroundImages.length]);
