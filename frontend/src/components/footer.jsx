@@ -11,10 +11,10 @@ function Footer() {
         </div>
         <div>
           <p>Rua da Ribeirinha, nº49, Caçador</p>
-          <p>Viseu, 3505-466</p>
+          <p>3505-466, Viseu</p>
         </div>
         <div>
-          <p>962 309 206</p>
+          <p>+351 962 309 206</p>
           <p>geral.remotestrategy@gmail.com</p>
         </div>
       </div>
