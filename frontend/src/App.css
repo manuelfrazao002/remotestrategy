@@ -559,7 +559,7 @@ html {
   }
 }
 
-@media screen and (max-width: 1000px) and (min-width: 199px) {
+@media screen and (max-width: 768px) and (min-width: 199px) {
   #root {
   margin: 0 auto;
   padding: 2rem 0.5rem; /* menos padding lateral */
