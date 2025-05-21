@@ -9,11 +9,16 @@ import Footer from "./components/footer";
 import ContactForm from "./components/contactform";
 import ficha1 from "./imgs/ficha_1.jpg";
 import ficha2 from "./imgs/ficha_2.jpg";
+import useFadeInOnScroll from "./hooks/useFadeInOnScroll";
 
 import getBackgroundImages from "./utils/getBackgroundImages";
 
 function App() {
   const [showImages, setShowImages] = useState(false);
+
+  const [refAbout, isVisibleAbout] = useFadeInOnScroll();
+  const [refPortfolio, isVisiblePortfolio] = useFadeInOnScroll();
+  const [refContact, isVisibleContact] = useFadeInOnScroll();
 
   useEffect(() => {
     const handleScroll = () => {
@@ -95,7 +100,11 @@ function App() {
                   </div>
                 </section>
 
-                <section id="about-us">
+                <section
+                  id="about-us"
+                  ref={refAbout}
+                  className={`fade-in ${isVisibleAbout ? "visible" : ""}`}
+                >
                   <div className="container-imgs">
                     <img
                       className={`ficha-image ficha-1 ${

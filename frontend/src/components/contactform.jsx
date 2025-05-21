@@ -2,11 +2,17 @@ import emailjs from "@emailjs/browser";
 import { useRef, useEffect, useState } from "react";
 import ficha1 from "../imgs/ficha_1.jpg";
 import ficha2 from "../imgs/ficha_2.jpg";
+import useFadeInOnScroll from "../hooks/useFadeInOnScroll";
 
 const ContactForm = () => {
   const form = useRef();
   const [showImages, setShowImages] = useState(false);
   const [popup, setPopup] = useState({ show: false, message: "", type: "" });
+
+  //Animação fade-in dos elementos
+  const [refAbout, isVisibleAbout] = useFadeInOnScroll();
+  const [refPortfolio, isVisiblePortfolio] = useFadeInOnScroll();
+  const [refContact, isVisibleContact] = useFadeInOnScroll();
 
   const sendEmail = (e) => {
     e.preventDefault();
@@ -24,7 +30,10 @@ const ContactForm = () => {
           form.current.reset();
         },
         (error) => {
-          showPopup("Erro ao enviar mensagem. Tente novamente mais tarde.", "error");
+          showPopup(
+            "Erro ao enviar mensagem. Tente novamente mais tarde.",
+            "error"
+          );
           console.error("Erro:", error.text);
         }
       );
@@ -49,49 +58,52 @@ const ContactForm = () => {
   }, []);
 
   return (
-    <section id="contact-page">
-  <div className="container-imgs">
-    <img
-      className={`ficha-image ficha-1 ${showImages ? "show" : ""}`}
-      src={ficha1}
-      alt="ficha_1"
-    />
-    <h2>Contacte-nos</h2>
-    <img
-      className={`ficha-image ficha-2 ${showImages ? "show" : ""}`}
-      src={ficha2}
-      alt="ficha_2"
-    />
-  </div>
-
-  <p>Estamos disponíveis para esclarecer dúvidas ou iniciar novos projetos!</p>
-
-  {/* Wrapper com position: relative */}
-  <div style={{ position: "relative" }}>
-    <form ref={form} onSubmit={sendEmail} className="contact-form">
-      <label>
-        Nome:
-        <input type="text" name="name" required />
-      </label>
-      <label>
-        Email:
-        <input type="email" name="email" required />
-      </label>
-      <label>
-        Mensagem:
-        <textarea name="message" rows="5" required></textarea>
-      </label>
-      <button type="submit">Enviar</button>
-    </form>
-
-    {popup.show && (
-      <div className={`popup ${popup.type}`}>
-        {popup.message}
+    <section
+      id="contact-page"
+      ref={refAbout}
+      className={`fade-in ${isVisibleAbout ? "visible" : ""}`}
+    >
+      <div className="container-imgs">
+        <img
+          className={`ficha-image ficha-1 ${showImages ? "show" : ""}`}
+          src={ficha1}
+          alt="ficha_1"
+        />
+        <h2>Contacte-nos</h2>
+        <img
+          className={`ficha-image ficha-2 ${showImages ? "show" : ""}`}
+          src={ficha2}
+          alt="ficha_2"
+        />
       </div>
-    )}
-  </div>
-</section>
 
+      <p>
+        Estamos disponíveis para esclarecer dúvidas ou iniciar novos projetos!
+      </p>
+
+      {/* Wrapper com position: relative */}
+      <div style={{ position: "relative" }}>
+        <form ref={form} onSubmit={sendEmail} className="contact-form">
+          <label>
+            Nome:
+            <input type="text" name="name" required />
+          </label>
+          <label>
+            Email:
+            <input type="email" name="email" required />
+          </label>
+          <label>
+            Mensagem:
+            <textarea name="message" rows="5" required></textarea>
+          </label>
+          <button type="submit">Enviar</button>
+        </form>
+
+        {popup.show && (
+          <div className={`popup ${popup.type}`}>{popup.message}</div>
+        )}
+      </div>
+    </section>
   );
 };
 

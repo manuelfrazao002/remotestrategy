@@ -9,6 +9,17 @@ html {
   text-align: center;
 }
 
+.fade-in {
+  opacity: 0;
+  transform: translateY(200px);
+  transition: opacity 0.8s ease-out, transform 0.8s ease-out;
+}
+
+.fade-in.visible {
+  opacity: 1;
+  transform: translateY(0);
+}
+
 /**********Navbar***************/
 
 #navbar {
@@ -47,7 +58,7 @@ html {
   left: 0;
   overflow: hidden;
   z-index: -1;
-    background-image: linear-gradient(to bottom, transparent, white);
+  background-image: linear-gradient(to bottom, transparent, white);
 }
 
 #background-carousel::after {
@@ -61,7 +72,6 @@ html {
   z-index: 2;
   pointer-events: none;
 }
-
 
 .carousel-img {
   position: absolute;
@@ -196,6 +206,8 @@ html {
   box-shadow: 0 4px 12px rgba(0, 0, 0, 0.1);
   transition: box-shadow 0.3s ease, transform 0.3s ease;
   text-decoration: none;
+  max-width: 400px;
+  margin: 0 auto;
 }
 
 .card-img {

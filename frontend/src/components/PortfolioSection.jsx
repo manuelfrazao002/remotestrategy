@@ -3,10 +3,23 @@ import { Link } from "react-router-dom";
 import portfolioItems from "../data/portfolioData";
 import ficha1 from "../imgs/ficha_1.jpg";
 import ficha2 from "../imgs/ficha_2.jpg";
+import useFadeInOnScroll from "../hooks/useFadeInOnScroll";
 
 const PortfolioSection = () => {
   const [selectedCategory, setSelectedCategory] = useState("Todos");
-  const categorias = ["Todos", "Categoria 1", "Categoria 2"];
+  const categorias = [
+    "Todos",
+    "Interiores",
+    "Exteriores",
+    "Energia Renovável",
+    "Deteção de Incêndio",
+    "Telecomunicações",
+  ];
+
+  //Animação fade-in dos elementos
+  const [refAbout, isVisibleAbout] = useFadeInOnScroll();
+  const [refPortfolio, isVisiblePortfolio] = useFadeInOnScroll();
+  const [refContact, isVisibleContact] = useFadeInOnScroll();
 
   const filteredItems =
     selectedCategory === "Todos"
@@ -49,7 +62,11 @@ const PortfolioSection = () => {
   }, []);
 
   return (
-    <section id="cards-section">
+    <section
+      id="cards-section"
+      ref={refAbout}
+      className={`fade-in ${isVisibleAbout ? "visible" : ""}`}
+    >
       <div className="container-imgs">
         <img
           className={`ficha-image ficha-1 ${showImages ? "show" : ""}`}
@@ -81,24 +98,27 @@ const PortfolioSection = () => {
 
       <div className="cards-grid">
         {filteredItems.map((item) => (
-<Link
-  to={`/projeto/${item.id}`}
-  key={item.id}
-  className="tilt-card"
-  onMouseMove={handleTilt}
-  onMouseLeave={resetTilt}
->
-  <div className="tilt-inner">
-    <div className="card">
-      <img src={item.images[0]} alt={item.title} className="card-img" />
-      <div className="card-overlay">
-        <p>{item.title}</p>
-        <p className="plus-about">+</p>
-      </div>
-    </div>
-  </div>
-</Link>
-
+          <Link
+            to={`/projeto/${item.id}`}
+            key={item.id}
+            className="tilt-card"
+            onMouseMove={handleTilt}
+            onMouseLeave={resetTilt}
+          >
+            <div className="tilt-inner">
+              <div className="card">
+                <img
+                  src={item.images[0]}
+                  alt={item.title}
+                  className="card-img"
+                />
+                <div className="card-overlay">
+                  <p>{item.title}</p>
+                  <p className="plus-about">+</p>
+                </div>
+              </div>
+            </div>
+          </Link>
         ))}
       </div>
     </section>
