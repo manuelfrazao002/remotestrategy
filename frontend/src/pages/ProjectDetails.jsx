@@ -46,7 +46,7 @@ const ProjectDetails = () => {
   ← Voltar
 </button>
 
-        <h1>{projeto.title}</h1>
+        <h1 className="project_title">{projeto.title}</h1>
         <p>{projeto.description}</p>
 
         <div className="project-gallery">

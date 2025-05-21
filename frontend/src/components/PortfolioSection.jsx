@@ -8,6 +8,8 @@ import useFadeInOnScroll from "../hooks/useFadeInOnScroll";
 const PortfolioSection = () => {
   const [isMobile, setIsMobile] = useState(window.innerWidth <= 768);
   const [selectedCategory, setSelectedCategory] = useState("Todos");
+  const [showMobileCategories, setShowMobileCategories] = useState(false);
+
   const categorias = [
     "Todos",
     "Interiores",
@@ -20,19 +22,19 @@ const PortfolioSection = () => {
   const location = useLocation();
   const navigate = useNavigate();
 
-useEffect(() => {
-  if (location.state?.scrollToPortfolio) {
-    const section = document.getElementById("cards-section");
-    if (section) {
-      setTimeout(() => {
-        section.scrollIntoView({ behavior: "smooth" });
+  useEffect(() => {
+    if (location.state?.scrollToPortfolio) {
+      const section = document.getElementById("cards-section");
+      if (section) {
+        setTimeout(() => {
+          section.scrollIntoView({ behavior: "smooth" });
 
-        // 🧹 Limpa o estado após o scroll
-        navigate(location.pathname, { replace: true, state: {} });
-      }, 100);
+          // 🧹 Limpa o estado após o scroll
+          navigate(location.pathname, { replace: true, state: {} });
+        }, 100);
+      }
     }
-  }
-}, [location, navigate]);
+  }, [location, navigate]);
 
   //Animação fade-in dos elementos
   const [refAbout, isVisibleAbout] = useFadeInOnScroll();
@@ -80,13 +82,13 @@ useEffect(() => {
   }, []);
 
   useEffect(() => {
-  const handleResize = () => {
-    setIsMobile(window.innerWidth <= 768);
-  };
+    const handleResize = () => {
+      setIsMobile(window.innerWidth <= 768);
+    };
 
-  window.addEventListener("resize", handleResize);
-  return () => window.removeEventListener("resize", handleResize);
-}, []);
+    window.addEventListener("resize", handleResize);
+    return () => window.removeEventListener("resize", handleResize);
+  }, []);
 
   return (
     <section
@@ -109,18 +111,53 @@ useEffect(() => {
       </div>
 
       <div className="portfolio-filters">
-        {categorias.map((cat) => (
-          <button
-            key={cat}
-            onClick={() => setSelectedCategory(cat)}
-            className={`filter-button ${
-              selectedCategory === cat ? "active" : ""
-            }`}
-            aria-pressed={selectedCategory === cat}
-          >
-            {cat}
-          </button>
-        ))}
+        {isMobile ? (
+          <>
+            {/* Botão principal que mostra a categoria atual */}
+            <button
+              className={`filter-button ${
+                showMobileCategories ? "active" : ""
+              }`}
+              onClick={() => setShowMobileCategories(!showMobileCategories)}
+              aria-expanded={showMobileCategories}
+            >
+              {selectedCategory}
+            </button>
+
+            {/* Lista de categorias (excluindo a já selecionada) */}
+            {showMobileCategories &&
+              categorias
+                .filter((cat) => cat !== selectedCategory)
+                .map((cat) => (
+                  <button
+                    key={cat}
+                    onClick={() => {
+                      setSelectedCategory(cat);
+                      setShowMobileCategories(false);
+                    }}
+                    className={`filter-button ${
+                      selectedCategory === cat ? "active" : ""
+                    }`}
+                    aria-pressed={selectedCategory === cat}
+                  >
+                    {cat}
+                  </button>
+                ))}
+          </>
+        ) : (
+          categorias.map((cat) => (
+            <button
+              key={cat}
+              onClick={() => setSelectedCategory(cat)}
+              className={`filter-button ${
+                selectedCategory === cat ? "active" : ""
+              }`}
+              aria-pressed={selectedCategory === cat}
+            >
+              {cat}
+            </button>
+          ))
+        )}
       </div>
 
       <div className="cards-grid">
