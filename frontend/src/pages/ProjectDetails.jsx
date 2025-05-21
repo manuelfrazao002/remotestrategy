@@ -1,4 +1,4 @@
-import { useState } from "react";
+import { useState, useEffect } from "react";
 import { useParams, useNavigate } from "react-router-dom";
 import portfolioItems from "../data/portfolioData";
 import Footer from "../components/footer";
@@ -11,6 +11,11 @@ const ProjectDetails = () => {
 
   const [isModalOpen, setIsModalOpen] = useState(false);
   const [currentIndex, setCurrentIndex] = useState(0);
+
+  // 👇 Scroll para o topo quando o componente monta
+  useEffect(() => {
+    window.scrollTo(0, 0);
+  }, []);
 
   if (!projeto) {
     return <h2>Projeto não encontrado.</h2>;
@@ -34,13 +39,15 @@ const ProjectDetails = () => {
   return (
     <>
       <div style={{ padding: "2rem" }}>
-        <button onClick={() => navigate(-1)} style={{ marginBottom: "1rem" }}>
-          ← Voltar
-        </button>
+<button
+  onClick={() => navigate("/", { state: { scrollToPortfolio: true } })}
+  style={{ marginBottom: "1rem" }}
+>
+  ← Voltar
+</button>
 
         <h1>{projeto.title}</h1>
         <p>{projeto.description}</p>
-        {/* <p>Total de imagens: {projeto.images.length}</p> */}
 
         <div className="project-gallery">
           {projeto.images.map((img, index) => (
@@ -59,16 +66,15 @@ const ProjectDetails = () => {
       {isModalOpen && (
         <div className="modal-overlay" onClick={closeModal}>
           <div className="modal-content" onClick={(e) => e.stopPropagation()}>
-  <button onClick={closeModal} className="close-btn">×</button>
-  <button onClick={prevImage} className="nav-btn nav-left">←</button>
-  <img
-    src={projeto.images[currentIndex]}
-    alt={`Imagem ${currentIndex + 1}`}
-    className="modal-image"
-  />
-  <button onClick={nextImage} className="nav-btn nav-right">→</button>
-</div>
-
+            <button onClick={closeModal} className="close-btn">×</button>
+            <button onClick={prevImage} className="nav-btn nav-left">←</button>
+            <img
+              src={projeto.images[currentIndex]}
+              alt={`Imagem ${currentIndex + 1}`}
+              className="modal-image"
+            />
+            <button onClick={nextImage} className="nav-btn nav-right">→</button>
+          </div>
         </div>
       )}
 

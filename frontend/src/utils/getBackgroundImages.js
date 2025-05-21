@@ -1,5 +1,3 @@
-// utils/getBackgroundImages.js
-
 import img1 from "../imgs/exteriores/0.jpg";
 import img2 from "../imgs/interiores/IMG_0490.jpg";
 import img3 from "../imgs/interiores/IMG_2321.jpg";
