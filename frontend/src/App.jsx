@@ -1,6 +1,6 @@
 import { BrowserRouter as Router, Routes, Route } from "react-router-dom";
 import { useEffect, useState } from "react";
-import aboutUs from "./imgs/about_us.jpg";
+import aboutUs from "./imgs/energia_renovavel/IMG_6516.jpg";
 import "./App.css";
 import PortfolioSection from "./components/PortfolioSection";
 import ProjectDetails from "./pages/ProjectDetails";
