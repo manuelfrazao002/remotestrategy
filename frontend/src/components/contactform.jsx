@@ -69,7 +69,12 @@ const ContactForm = () => {
           src={ficha1}
           alt="ficha_1"
         />
-        <h2>Contacte-nos</h2>
+        <a href="#top" className="scroll-top-link">
+  <h2 className="hover-title">
+    Contacte-nos
+    <span className="hover-subtext">Voltar ao topo</span>
+  </h2>
+</a>
         <img
           className={`ficha-image ficha-2 ${showImages ? "show" : ""}`}
           src={ficha2}

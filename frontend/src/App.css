@@ -186,6 +186,42 @@ html {
   font-size: 1rem;
 }
 
+.scroll-top-link {
+  text-decoration: none;
+  color: inherit;
+}
+
+.hover-title {
+  position: relative;
+  display: inline-block;
+  cursor: pointer;
+  transition: color 0.3s ease;
+}
+
+.hover-title:hover {
+  color: #e4b100;
+}
+
+.hover-subtext {
+  display: block;
+  font-size: 0.9rem;
+  color: #e4b100;
+  opacity: 0;
+  transition: opacity 0.3s ease, transform 0.3s ease;
+  transform: translateY(-5px);
+  position: absolute;
+  left: 50%;
+  top: 100%;
+  transform: translate(-50%, 5px);
+  white-space: nowrap;
+}
+
+.hover-title:hover .hover-subtext {
+  opacity: 1;
+  transform: translate(-50%, 10px);
+}
+
+
 /***************************/
 
 /*************Portfólio**************/
