@@ -12,6 +12,7 @@ import ficha2 from "./imgs/ficha_2.jpg";
 import useFadeInOnScroll from "./hooks/useFadeInOnScroll";
 
 import getBackgroundImages from "./utils/getBackgroundImages";
+import img5 from "../src/imgs/exteriores/0.jpg";
 
 function App() {
   const [showImages, setShowImages] = useState(false);
@@ -88,14 +89,14 @@ function App() {
                     onTouchMove={handleTouchMove}
                   >
                     {backgroundImages.map((img, index) => (
-                      <img
-                        key={index}
-                        src={img}
-                        alt={`background ${index}`}
-                        className={`carousel-img ${
-                          index === currentIndex ? "active" : ""
-                        }`}
-                      />
+  <img
+    key={index}
+    src={img}
+    alt={`background ${index}`}
+    className={`carousel-img ${
+      index === currentIndex ? "active" : ""
+    } ${img === img5 ? "adjusted-image" : ""}`}
+  />
                     ))}
                   </div>
                 </section>

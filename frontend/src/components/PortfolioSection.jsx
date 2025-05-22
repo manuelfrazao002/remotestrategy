@@ -103,11 +103,11 @@ const PortfolioSection = () => {
           alt="ficha_1"
         />
         <a href="#top" className="scroll-top-link">
-  <h2 className="hover-title">
-    Portfólio
-    <span className="hover-subtext">Voltar ao topo</span>
-  </h2>
-</a>
+          <h2 className="hover-title">
+            Portfólio
+            <span className="hover-subtext">Voltar ao topo</span>
+          </h2>
+        </a>
         <img
           className={`ficha-image ficha-2 ${showImages ? "show" : ""}`}
           src={ficha2}

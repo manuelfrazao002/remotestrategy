@@ -48,6 +48,7 @@ const ProjectDetails = () => {
 
         <h1 className="project_title">{projeto.title}</h1>
         <p>{projeto.description}</p>
+        <p>&copy; Imagens com todos os direitos reservados.</p>
 
         <div className="project-gallery">
           {projeto.images.map((img, index) => (
