@@ -293,10 +293,15 @@ html {
 .tilt-inner {
   transition: transform 0.2s ease;
   transform-style: preserve-3d;
+  transform: rotateX(0deg) rotateY(0deg);
 }
 
 .tilt-card:hover .tilt-inner {
   transform: rotateY(var(--rotateX)) rotateX(var(--rotateY));
+}
+
+.card-img, .card, .tilt-inner {
+  backface-visibility: hidden;
 }
 
 /***************************/
