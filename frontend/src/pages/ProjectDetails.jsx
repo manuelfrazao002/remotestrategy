@@ -58,6 +58,7 @@ const ProjectDetails = () => {
               alt={`Imagem ${index + 1}`}
               className="project-image"
               onClick={() => openModal(index)}
+              onContextMenu={(e) => e.preventDefault()}
               style={{ width: "500px", margin: "1rem", cursor: "pointer" }}
             />
           ))}
@@ -73,6 +74,7 @@ const ProjectDetails = () => {
               src={projeto.images[currentIndex]}
               alt={`Imagem ${currentIndex + 1}`}
               className="modal-image"
+              onContextMenu={(e) => e.preventDefault()}
             />
             <button onClick={nextImage} className="nav-btn nav-right">→</button>
           </div>
