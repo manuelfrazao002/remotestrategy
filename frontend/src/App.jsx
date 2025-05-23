@@ -105,6 +105,7 @@ function App() {
                   id="about-us"
                   ref={refAbout}
                   className={`fade-in ${isVisibleAbout ? "visible" : ""}`}
+                  onContextMenu={(e) => e.preventDefault()}
                 >
                   <div className="container-imgs">
                     <img
@@ -113,6 +114,7 @@ function App() {
                       }`}
                       src={ficha1}
                       alt="ficha_1"
+                      onContextMenu={(e) => e.preventDefault()}
                     />
                     <a href="#top" className="scroll-top-link">
   <h2 className="hover-title">
@@ -126,6 +128,7 @@ function App() {
                       }`}
                       src={ficha2}
                       alt="ficha_2"
+                      onContextMenu={(e) => e.preventDefault()}
                     />
                   </div>
                   <div className="aboutus-container">

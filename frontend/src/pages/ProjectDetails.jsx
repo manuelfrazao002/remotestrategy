@@ -11,8 +11,8 @@ const ProjectDetails = () => {
 
   const [isModalOpen, setIsModalOpen] = useState(false);
   const [currentIndex, setCurrentIndex] = useState(0);
+  const [showScrollToTop, setShowScrollToTop] = useState(false);
 
-  // 👇 Scroll para o topo quando o componente monta
   useEffect(() => {
     window.scrollTo(0, 0);
   }, []);
@@ -36,15 +36,28 @@ const ProjectDetails = () => {
       prev === 0 ? projeto.images.length - 1 : prev - 1
     );
 
+  useEffect(() => {
+    const handleScroll = () => {
+      setShowScrollToTop(window.scrollY > 300);
+    };
+
+    window.addEventListener("scroll", handleScroll);
+    return () => window.removeEventListener("scroll", handleScroll);
+  }, []);
+
+  const scrollToTop = () => {
+    window.scrollTo({ top: 0, behavior: "smooth" });
+  };
+
   return (
     <>
       <div style={{ padding: "2rem" }}>
-<button
-  onClick={() => navigate("/", { state: { scrollToPortfolio: true } })}
-  style={{ marginBottom: "1rem" }}
->
-  ← Voltar
-</button>
+        <button
+          onClick={() => navigate("/", { state: { scrollToPortfolio: true } })}
+          style={{ marginBottom: "1rem" }}
+        >
+          ← Voltar
+        </button>
 
         <h1 className="project_title">{projeto.title}</h1>
         <p>{projeto.description}</p>
@@ -68,17 +81,45 @@ const ProjectDetails = () => {
       {isModalOpen && (
         <div className="modal-overlay" onClick={closeModal}>
           <div className="modal-content" onClick={(e) => e.stopPropagation()}>
-            <button onClick={closeModal} className="close-btn">×</button>
-            <button onClick={prevImage} className="nav-btn nav-left">←</button>
+            <button onClick={closeModal} className="close-btn">
+              ×
+            </button>
+            <button onClick={prevImage} className="nav-btn nav-left">
+              ←
+            </button>
             <img
               src={projeto.images[currentIndex]}
               alt={`Imagem ${currentIndex + 1}`}
               className="modal-image"
               onContextMenu={(e) => e.preventDefault()}
             />
-            <button onClick={nextImage} className="nav-btn nav-right">→</button>
+            <button onClick={nextImage} className="nav-btn nav-right">
+              →
+            </button>
           </div>
         </div>
+      )}
+
+      {showScrollToTop && (
+        <button
+          onClick={scrollToTop}
+          style={{
+            position: "fixed",
+            bottom: "40px",
+            right: "40px",
+            padding: "10px 15px",
+            fontSize: "18px",
+            backgroundColor: "#333",
+            color: "#fff",
+            border: "none",
+            borderRadius: "8px",
+            cursor: "pointer",
+            zIndex: 1000,
+            boxShadow: "0 4px 8px rgba(0, 0, 0, 0.2)",
+          }}
+        >
+          ↑ Topo
+        </button>
       )}
 
       <Footer />

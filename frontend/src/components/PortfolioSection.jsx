@@ -173,6 +173,7 @@ const PortfolioSection = () => {
             className="tilt-card"
             onMouseMove={handleTilt}
             onMouseLeave={resetTilt}
+            onContextMenu={(e) => e.preventDefault()}
           >
             <div className="tilt-inner">
               <div className="card">

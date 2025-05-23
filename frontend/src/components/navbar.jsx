@@ -14,9 +14,7 @@ function NavBar() {
     <>
               <div>
                 <nav id="navbar">
-                  <a href="#">
-                    <img src={logo} className="logo" alt="Remote Strategy Logo" />
-                  </a>
+                    <img src={logo} className="logo" alt="Remote Strategy Logo" onContextMenu={(e) => e.preventDefault()}/>
                   <aside id="links-aside">
                     <a href="#about-us">
                       <p>Sobre Nós</p>

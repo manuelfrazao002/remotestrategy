@@ -86,7 +86,7 @@ html {
 }
 
 .adjusted-image {
-  object-position: center 90%; /* mais perto do fundo, experimente 80%, 85%, etc. */
+  object-position: center 70%; /* mais perto do fundo, experimente 80%, 85%, etc. */
 }
 
 

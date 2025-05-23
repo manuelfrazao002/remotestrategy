@@ -7,7 +7,7 @@ function Footer() {
     <footer id="footer">
       <div className="footer-links">
         <div>
-          <img src={Logo} alt="logotipo_remotestrategy" />
+          <img src={Logo} alt="logotipo_remotestrategy" onContextMenu={(e) => e.preventDefault()}/>
         </div>
         <div>
           <p>Rua da Ribeirinha, nº49, Caçador</p>
