@@ -183,7 +183,7 @@ const PortfolioSection = () => {
                   className="card-img"
                 />
                 <div className="card-overlay">
-                  <p>{item.title}</p>
+                  <p className="card-text">{item.title}</p>
                   <p className="plus-about">+</p>
                 </div>
               </div>

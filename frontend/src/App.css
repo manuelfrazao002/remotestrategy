@@ -350,6 +350,16 @@ html {
   backface-visibility: hidden;
 }
 
+.card-text {
+  font-size: clamp(0.9rem, 1.5vw, 1.2rem);
+  font-weight: bold;
+  white-space: normal; /* permite quebra de linha */
+  overflow: hidden;
+  text-overflow: ellipsis;
+  max-width: 90%;
+  line-height: 1.3;
+}
+
 /***************************/
 
 /*************Página Detalhes**************/
