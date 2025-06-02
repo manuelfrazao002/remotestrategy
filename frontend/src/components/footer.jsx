@@ -27,7 +27,7 @@ function Footer() {
       <div className="footer-links">
         <div>
           <img src={Logo} alt="logotipo_remotestrategy" onContextMenu={(e) => e.preventDefault()}/>
-          <Link to="politica-privacidade"><p className="privacy-text">Politica de Privacidade</p></Link>
+          <Link to="/politica-privacidade"><p className="privacy-text">Politica de Privacidade</p></Link>
         </div>
         <div>
           <p>Rua da Ribeirinha, nº49, Caçador</p>
