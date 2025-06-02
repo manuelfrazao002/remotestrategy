@@ -14,8 +14,8 @@ const PortfolioSection = () => {
     "Todos",
     "Interiores",
     "Exteriores",
-    "Energia Renovável",
-    "Deteção de Incêndio",
+    "Energias Renováveis",
+    "Segurança",
     "Telecomunicações",
   ];
 
@@ -114,7 +114,7 @@ const PortfolioSection = () => {
           alt="ficha_2"
         />
       </div>
-
+<div className="portfolio-categories">
       <div className="portfolio-filters">
         {isMobile ? (
           <>
@@ -164,7 +164,7 @@ const PortfolioSection = () => {
           ))
         )}
       </div>
-
+</div>
       <div className="cards-grid">
         {filteredItems.map((item) => (
           <Link
