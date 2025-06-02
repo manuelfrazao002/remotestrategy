@@ -8,6 +8,10 @@ const ProjectPrivacidade = () => {
 
   const [showScrollToTop, setShowScrollToTop] = useState(false);
 
+    useEffect(() => {
+    window.scrollTo(0, 0);
+  }, []);
+
   useEffect(() => {
     const handleScroll = () => {
       setShowScrollToTop(window.scrollY > 300);
