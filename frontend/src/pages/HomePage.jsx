@@ -115,18 +115,28 @@ function HomePage() {
         <div className="aboutus-container">
           <img id="img-aboutus" src={aboutUs} alt="sobre_nos_section" />
           <div id="aboutus-text">
-            <p>
-              Lorem Ipsum is simply dummy text of the printing and typesetting
-              industry. Lorem Ipsum has been the industry's standard dummy text
-              ever since the 1500s, when an unknown printer took a galley of
-              type and scrambled it to make a type specimen book. It has
-              survived not only five centuries, but also the leap into
-              electronic typesetting, remaining essentially unchanged. It was
-              popularised in the 1960s with the release of Letraset sheets
-              containing Lorem Ipsum passages, and more recently with desktop
-              publishing software like Aldus PageMaker including versions of
-              Lorem Ipsum.
-            </p>
+            <p style={{textAlign: "justify"}}>
+              A Remote Strategy é uma empresa de instalações elétricas e
+              telecomunicações, fundada em 2022, com uma base familiar e uma
+              visão ambiciosa para o futuro. Nasce da iniciativa de um
+              sócio-gerente com mais de 10 anos de experiência em nome
+              individual e mais de 30 anos ao serviço de uma das maiores
+              empresas de referência na área de Viseu. Esta combinação de
+              conhecimento técnico, espírito empreendedor e proximidade pessoal
+              reflete-se em cada projeto que realizamos.</p>
+
+              <p style={{textAlign: "justify"}}>Somos reconhecidos pela
+              Direção Geral de Energia e Geologia (DGEG) como Entidade
+              Instaladora de Instalações Elétricas de Serviço Particular, o que
+              reforça o nosso compromisso com a conformidade legal, a segurança
+              e a qualidade dos nossos serviços.</p>
+
+              <p style={{textAlign: "justify"}}>Na Remote Strategy, acreditamos
+              que a excelência não é apenas um objetivo, mas um padrão. Atuamos
+              com total transparência, investimos em inovação contínua,
+              promovemos o trabalho em equipa e colocamos a segurança e a
+              qualidade no centro de tudo o que fazemos.</p>
+            
           </div>
         </div>
       </section>
