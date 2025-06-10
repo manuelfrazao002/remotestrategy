@@ -89,6 +89,32 @@ html {
   object-position: center 70%; /* mais perto do fundo, experimente 80%, 85%, etc. */
 }
 
+/* Background Páginas detalhes */
+
+  #background-sec-detalhes{
+      height: 50vh;
+  overflow: hidden;
+  }
+
+#background-carousel-detalhes{
+  height: 60vh;
+  width: 100vw;
+  position: absolute;
+  top: 0;
+  left: 0;
+  overflow: hidden;
+  z-index: -1;
+}
+
+#background-carousel::after {
+  content: "";
+  top: 0;
+  left: 0;
+  /* background-image: linear-gradient(to bottom, transparent, white); */
+  z-index: 2;
+  pointer-events: none;
+}
+
 
 /***************************/
 
@@ -590,7 +616,7 @@ html {
 
 .politica-privacidade{
   margin: 0 auto;
-  max-width: 1000px;
+  max-width: 80%;
 }
 
 /***************************/
@@ -626,6 +652,10 @@ html {
 @media (min-width: 2000px) {
   #background-sec {
     height: 90vh;
+  }
+
+    #background-sec-detalhes {
+    height: 55vh;
   }
 
   #background {
@@ -665,7 +695,7 @@ html {
   }
 
   #background-sec {
-    height: 60vh;
+    height: 65vh;
   }
 
   #background {
